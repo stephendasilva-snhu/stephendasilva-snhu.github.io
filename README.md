@@ -1,5 +1,6 @@
-# stephendasilva-snhu.github.io
-ePortfolio for SNHU CS-499
+# Stephen DaSilva's CS-499 ePortfolio
+
+## A Self-Assessment of Myself and My Work
 
 ## Code Review Video
 
