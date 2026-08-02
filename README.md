@@ -19,6 +19,7 @@ A specific part of the enhancement that showed my skills was the introduction of
   <Summary>Screenshots from my enhanced program</Summary>
   
 </details>
-## Artifact 2
 
-## Artifact 3
+## Artifact 2: Algorithms and Data Structures
+
+## Artifact 3: Databases
