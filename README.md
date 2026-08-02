@@ -17,7 +17,10 @@ A specific part of the enhancement that showed my skills was the introduction of
 
 <details>
   <Summary>Screenshots from my enhanced program</Summary>
-  
+  ![Intaking a Monkey](CS-499 Screenshots/screenshot_1.png)
+  ![Printing Animal List](CS-499 Screenshots/screenshot_2.png)
+  ![Training Animal](CS-499 Screenshots/screenshot_3.png)
+  ![Reserving Animal](CS-499 Screenshots/screenshot_4.png)
 </details>
 
 ## Artifact 2: Algorithms and Data Structures
