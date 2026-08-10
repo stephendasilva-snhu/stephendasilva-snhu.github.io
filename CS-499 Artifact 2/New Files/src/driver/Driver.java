@@ -158,15 +158,20 @@ public class Driver {
                 case "1" -> { // Add Appointment
                     String desc = prompt("Description: ");
                     String[] dateNums = prompt("Date (yyyy-mm-dd): ").split("-");
-                    Date date = new Date(
-                            Integer.parseInt(dateNums[0]) - 1900,
-                            Integer.parseInt(dateNums[1]) - 1,
-                            Integer.parseInt(dateNums[2])
-                    );
+                    try {
+                        Date date = new Date(
+                                Integer.parseInt(dateNums[0]) - 1900,
+                                Integer.parseInt(dateNums[1]) - 1,
+                                Integer.parseInt(dateNums[2])
+                        );
 
-                    runTimer("Add Appointment", () -> {
+                        runTimer("Add Appointment", () -> {
                         appointmentService.addAppointment(date, desc);
                     });
+                    }
+                    catch(NumberFormatException e) {
+                        System.out.println("Invalid Input");
+                    }
                 }
 
                 case "2" -> { // Delete Appointment
