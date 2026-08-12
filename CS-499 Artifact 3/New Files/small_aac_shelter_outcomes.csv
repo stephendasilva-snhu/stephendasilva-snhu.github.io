@@ -1,0 +1,11 @@
+1,age_upon_outcome,animal_id,animal_type,breed,color,date_of_birth,datetime,monthyear,name,outcome_subtype,outcome_type,sex_upon_outcome,location_lat,location_long,age_upon_outcome_in_weeks
+1,3 years,A111111,Cat,Domestic Shorthair Mix,Black/White,4/10/2014,4/11/2017 9:00,2017-04-11T09:00:00,Test1,SCRP,Transfer,Neutered Male,30.50665787,-97.34087807,156.7678571
+2,1 year,A111112,Cat,Domestic Shorthair Mix,Silver Tabby,5/2/2015,5/6/2016 10:49,2016-05-06T10:49:00,Test2,SCRP,Transfer,Spayed Female,30.65259846,-97.74199635,52.92152778
+3,2 years,A111113,Dog,Chihuahua Shorthair Mix,Brown/White,11/18/2013,12/28/2015 18:43,2015-12-28T18:43:00,Frank,,Adoption,Neutered Male,30.75957481,-97.55237538,110.1114087
+4,7 months,A111114,Cat,Siamese Mix,Seal Point,1/25/2016,8/27/2016 18:11,2016-08-27T18:11:00,Test3,,Adoption,Intact Female,30.31880634,-97.72403767,30.82251984
+5,2 years,A111115,Dog,Labrador Retriever Mix,Tan/White,11/6/2012,5/30/2015 13:48,2015-05-30T13:48:00,Test4,,Return to Owner,Neutered Male,30.71048156,-97.56229744,133.6535714
+6,5 years,A111116,Dog,Cardigan Welsh Corgi Mix,Sable/White,1/27/2010,1/28/2015 10:39,2015-01-28T10:39:00,Test5,Rabies Risk,Euthanasia,Spayed Female,30.67373659,-97.70797153,261.0633929
+7,2 years,A111117,Dog,Pit Bull Mix,Black/White,3/3/2012,3/19/2014 15:15,2014-03-19T15:15:00,Test6,Aggressive,Euthanasia,Neutered Male,30.29542566,-97.31366421,106.6622024
+8,1 year,A111118,Dog,Labrador Retriever/Australian Cattle Dog,Black,10/12/2015,11/27/2016 18:00,2016-11-27T18:00:00,Test7,,Adoption,Spayed Female,30.44432128,-97.73269803,58.96428571
+9,3 years,A111119,Dog,Labrador Retriever Mix,Red/White,2/4/2013,2/11/2016 12:41,2016-02-11T12:41:00,Test8,,Adoption,Spayed Female,30.38706482,-97.36843397,157.5040675
+10,3 months,A111120,Cat,Domestic Shorthair Mix,Tortie,9/1/2013,12/8/2013 14:58,2013-12-08T14:58:00,Test9,,Adoption,Spayed Female,30.75831055,-97.6182922,14.0890873
