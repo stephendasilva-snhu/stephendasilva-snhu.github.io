@@ -31,24 +31,28 @@
   </head>
 
   <body>
-    <header>
-      <h1>{{ site.title }}</h1>
-      <nav>
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/artifact-1/' | relative_url }}">Artifact 1</a>
-        <a href="{{ '/artifact-2/' | relative_url }}">Artifact 2</a>
-        <a href="{{ '/artifact-3/' | relative_url }}">Artifact 3</a>
-      </nav>
-      <hr>
-    </header>
-
-    <main class="container">
-      {{ content }}
-    </main>
-
-    <footer>
-      <hr>
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}</p>
-    </footer>
+    <div class="wrapper">
+  
+      <header>
+        <h1>{{ site.title }}</h1>
+        <nav>
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/artifact-1/' | relative_url }}">Artifact 1</a>
+          <a href="{{ '/artifact-2/' | relative_url }}">Artifact 2</a>
+          <a href="{{ '/artifact-3/' | relative_url }}">Artifact 3</a>
+        </nav>
+        <hr>
+      </header>
+  
+      <main class="container">
+        {{ content }}
+      </main>
+  
+      <footer>
+        <hr>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}</p>
+      </footer>
+  
+    </div>
   </body>
 </html>
