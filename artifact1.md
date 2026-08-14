@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Artifact 1
 ---
 
 # Artifact 1: Software Design and Engineering
