@@ -28,7 +28,7 @@ IV. Demonstrate an ability to use well-founded and innovative techniques, skills
 V. Develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources
 </p>
 
-<div style="text-align:center;">
+<div style="text-align:center;" markdown="1">
   
 ## Screenshots from Enhanced Programm
 ### Main Dashboard (From Original Code)
