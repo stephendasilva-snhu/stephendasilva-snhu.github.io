@@ -11,6 +11,8 @@ title: Artifact 1
 
 ## Enhancement Narrative
 
+[Click here to access narrative docx directly](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/blob/main/CS-499%20Narratives%20and%20Assessment/CS%20499%20Artifact%201%20Narrative.docx)
+
 </div>
 
 For my first artifact, I picked the Grazioso Salvare Rescue Animal terminal that I made for IT 145: Foundations in Application Development. It was one of my first projects at SNHU, where I implemented multiple functions to interact with lists of entities, and implemented some input validation. Effectively, the application is a command-line program where you interface with lists to add and print details from entities (dogs and monkeys), and you can “reserve” an animal if its status indicates it is in service. I wanted to enhance this for my ePortfolio to show evidence of my skills in software design and engineering by porting it into Python. While the original version did show my ability to fulfill requirements with clear, concise code, there were shortcomings I caught in my code review that could be rectified during the process in moving it to Python. Overall, proficiency in both Java and Python was exhibited in the process of understanding and re-writing code across languages, which was the main enhancement, but I had other changes that also illustrate software development skills.
