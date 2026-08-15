@@ -28,33 +28,7 @@ from datetime import datetime
 # imports CRUD module
 from CRUD_Python_Module import AnimalShelter
 
-###########################
-# Data Manipulation / Model
-###########################
-# Instantiates CRUD module, hard-coded credentials
-# Please replace credentials if different
-username = "aacuser"
-password = "SNHU1234"
-HOST = 'localhost' 
-PORT = 27017 
-DB = 'aac' 
-COL = 'animals' 
-shelter = AnimalShelter(username, password, HOST, PORT, DB, COL) # Instantiates object
-
-# class read method must support return of list object and accept projection json input
-# sending the read method an empty document requests all documents be returned
-df = pd.DataFrame.from_records(shelter.read({}))
-
-# MongoDB v5+ is going to return the '_id' column and that is going to have an 
-# invlaid object type of 'ObjectID' - which will cause the data_table to crash - so we remove
-# it in the dataframe here. The df.drop command allows us to drop the column. If we do not set
-# inplace=True - it will reeturn a new dataframe that does not contain the dropped column(s)
-df.drop(columns=['_id'],inplace=True)
-
-## Debug
-# print(len(df.to_dict(orient='records')))
-# print(df.columns)
-
+# CRUD Module instantiated separately
 
 #########################
 # Dashboard Layout / View
@@ -109,8 +83,8 @@ html.Div(
     html.Hr(),
     dash_table.DataTable(
         id='datatable-id',
-        columns=[{"name": i, "id": i, "deletable": False, "selectable": True} for i in df.columns],
-        data=df.to_dict('records'),
+        columns=[],
+        data=[],
         # added user-friendly features, text-based filter, sorting, and pagination
         editable=False,
         filter_action="native",
@@ -150,7 +124,65 @@ html.Div(
     
     html.Hr(),
     dcc.Store(id="refresh-signal"), # used to trigger dashboard refreshes
-    
+    dcc.Store(id="db-connection"), # stores connection info/credentials
+
+    #########################
+    # Database Connection Layout / View
+    #########################
+    html.Div(
+        id="db-connect-panel",
+        style={
+            "backgroundColor": "white",
+            "padding": "25px",
+            "borderRadius": "10px",
+            "marginBottom": "30px",
+            "boxShadow": "0 2px 8px rgba(0,0,0,0.15)",
+            "maxWidth": "600px",
+            "marginLeft": "auto",
+            "marginRight": "auto"
+        },
+        children=[
+            html.H3("Database Connection", style={"textAlign": "center"}),
+
+            html.Div(
+                style={
+                    "display": "grid",
+                    "gridTemplateColumns": "1fr 1fr",
+                    "gap": "10px",
+                    "marginBottom": "15px"
+                },
+                children=[
+                    dcc.Input(id="db-username", placeholder="Username", type="text"),
+                    dcc.Input(id="db-password", placeholder="Password", type="password"),
+                    dcc.Input(id="db-host", placeholder="Host (e.g., localhost)", type="text"),
+                    dcc.Input(id="db-port", placeholder="Port (e.g., 27017)", type="number"),
+                    dcc.Input(id="db-name", placeholder="Database Name", type="text"),
+                    dcc.Input(id="db-collection", placeholder="Collection Name", type="text"),
+                ]
+            ),
+
+            html.Div(
+                style={"display": "flex", "justifyContent": "center"},
+                children=[
+                    html.Button(
+                        "Connect",
+                        id="db-connect-button",
+                        style={
+                            "backgroundColor": "#4CAF50",
+                            "color": "white",
+                            "padding": "10px 18px",
+                            "border": "none",
+                            "borderRadius": "6px",
+                            "cursor": "pointer"
+                        }
+                    )
+                ]
+            ),
+
+            html.Div(id="db-connect-status", style={"textAlign": "center", "marginTop": "10px"})
+        ]
+    ),
+
     #########################
     # Database Management Layout / View
     #########################
@@ -348,6 +380,24 @@ html.Div(
 # Interaction Between Components / Controller (Database)
 #############################################
 # Helper functions for callbacks
+def get_shelter(conn):
+    """Gets an AnimalShelter object based on the connection credentials
+
+    Args:
+        conn (db-connection): Database credentials
+
+    Returns:
+        AnimalShelter: the AnimalShelter object based on stored credentials
+    """    
+    return AnimalShelter(
+        conn["username"],
+        conn["password"],
+        conn["host"],
+        int(conn["port"]),
+        conn["db"],
+        conn["col"]
+    )
+
 FIELD_TYPES = { # Used for sanitize_value()
     "age_upon_outcome": "str",
     "age_upon_outcome_in_weeks": "float",
@@ -409,8 +459,11 @@ def sanitize_value(field, value):
 
     return value
 
-def get_next_record_number():
+def get_next_record_number(shelter):
     """Gets the next record number for the current database
+    
+    Args:
+        shelter (AnimalShelter): the database object
 
     Returns:
         int: The latest record number based on the database
@@ -422,6 +475,62 @@ def get_next_record_number():
     return 1
 
 ## Database callbacks
+# Callback used to connect to database
+@app.callback(
+    Output("db-connection", "data"),
+    Output("db-connect-status", "children"),
+    Input("db-connect-button", "n_clicks"),
+    State("db-username", "value"),
+    State("db-password", "value"),
+    State("db-host", "value"),
+    State("db-port", "value"),
+    State("db-name", "value"),
+    State("db-collection", "value"),
+    prevent_initial_call=True
+)
+def connect_to_database(n_clicks, username, password, host, port, db, col):
+    try:
+        shelter = AnimalShelter(username, password, host, int(port), db, col)
+        shelter.read({})  # test connection
+
+        return {
+            "username": username,
+            "password": password,
+            "host": host,
+            "port": port,
+            "db": db,
+            "col": col
+        }, "Connected successfully."
+
+    except Exception as e:
+        return no_update, f"Connection failed: {str(e)}"
+
+# Callback greys out database management UI until connection is completed
+@app.callback(
+    Output("management-panel", "style"),
+    Input("db-connection", "data")
+)
+def enable_management_panel(conn):
+    if conn is None:
+        return {
+            "opacity": "0.4",
+            "pointerEvents": "none",
+            "backgroundColor": "#f7f7f7",
+            "padding": "25px",
+            "borderRadius": "10px",
+            "marginTop": "40px",
+            "boxShadow": "0 2px 8px rgba(0,0,0,0.15)"
+        }
+    return {
+        "opacity": "1.0",
+        "pointerEvents": "auto",
+        "backgroundColor": "#f7f7f7",
+        "padding": "25px",
+        "borderRadius": "10px",
+        "marginTop": "40px",
+        "boxShadow": "0 2px 8px rgba(0,0,0,0.15)"
+    }
+
 # Callback used to dynamically get list of fields to populate
 # for the Update Animal menu
 @app.callback(
@@ -456,11 +565,17 @@ def populate_update_fields(viewData):
     State("input-outcome", "value"),
     State("input-lat", "value"),
     State("input-long", "value"),
+    State("db-connection", "data"),
     prevent_initial_call=True
 )
 def add_animal(n_clicks, animal_id, name, animal_type, breed, color,
-                    sex, age, age_weeks, dob, dt, outcome, lat, long):
+                    sex, age, age_weeks, dob, dt, outcome, lat, long, conn):
 
+    if conn is None:
+        return no_update, "Not connected to a database."
+    
+    shelter = get_shelter(conn)
+    
     if not n_clicks:
         return no_update, ""
 
@@ -468,7 +583,7 @@ def add_animal(n_clicks, animal_id, name, animal_type, breed, color,
         # Builds animal document
         # sanitize_value() used with each field's value
         doc = {
-            "1": get_next_record_number(), # uses helper to get the correct number
+            "1": get_next_record_number(shelter), # uses helper to get the correct number
             "animal_id": sanitize_value("animal_id", animal_id),
             "name": sanitize_value("name", name),
             "animal_type": sanitize_value("animal_type", animal_type),
@@ -503,9 +618,16 @@ def add_animal(n_clicks, animal_id, name, animal_type, breed, color,
     State("update-value", "value"),
     State("datatable-id", "derived_virtual_selected_rows"),
     State("datatable-id", "derived_virtual_data"),
+    State("db-connection", "data"),
     prevent_initial_call=True
 )
-def update_animal(n_clicks, field, value, selected_rows, table):
+def update_animal(n_clicks, field, value, selected_rows, table, conn):
+
+    if conn is None:
+        return no_update, "Not connected to a database."
+
+    shelter = get_shelter(conn)
+
     if not n_clicks or not selected_rows:
         return no_update, ""
 
@@ -539,9 +661,16 @@ def update_animal(n_clicks, field, value, selected_rows, table):
     Input("delete-button", "n_clicks"),
     State("datatable-id", "derived_virtual_selected_rows"),
     State("datatable-id", "derived_virtual_data"),
+    State("db-connection", "data"),
     prevent_initial_call=True
 )
-def delete_animal(n_clicks, selected_rows, table):
+def delete_animal(n_clicks, selected_rows, table, conn):
+
+    if conn is None:
+        return no_update, "Not connected to a database."
+
+    shelter = get_shelter(conn)
+
     try:
         if not n_clicks or not selected_rows:
             return no_update
@@ -564,9 +693,16 @@ def delete_animal(n_clicks, selected_rows, table):
      Output("csv-upload-status", "children")],
     Input("csv-upload", "contents"),
     State("csv-upload", "filename"),
+    State("db-connection", "data"),
     prevent_initial_call=True
 )
-def bulk_upload(contents, filename):
+def bulk_upload(contents, filename, conn):
+
+    if conn is None:
+        return no_update, "Not connected to a database."
+
+    shelter = get_shelter(conn)
+
     if contents is None: # In the event there is nothing
         return no_update, ""
 
@@ -582,7 +718,7 @@ def bulk_upload(contents, filename):
 
             # Build document using sanitize_value() for every field
             doc = {
-                "1": get_next_record_number(),
+                "1": get_next_record_number(shelter),
                 "animal_id": sanitize_value("animal_id", row["animal_id"]),
                 "name": sanitize_value("name", row.get("name", "")), # supports when there's no name, like in the original csv
                 "animal_type": sanitize_value("animal_type", row["animal_type"]),
@@ -612,6 +748,84 @@ def bulk_upload(contents, filename):
 #############################################
 # Callback used both when selecting a new filter query
 # and when dashboard is reloaded for some other reason
+@app.callback(
+    [Output('datatable-id','data'),
+     Output('datatable-id','selected_rows'),
+     Output('datatable-id','columns')],
+    [Input('filter-type', 'value'),
+     Input('refresh-signal', 'data'),
+     Input('db-connection', 'data')]
+)
+def update_dashboard(filter_type, refresh_signal, conn):
+    if conn is None:
+        return [], [], []
+
+    shelter = get_shelter(conn)
+
+    query = {}
+
+    # Apply filter based on radio selection
+    # Query is based on the requirements
+    if filter_type == 'Water':
+        query = {
+            "animal_type": "Dog",
+            "breed": {
+                "$in": [
+                    "Labrador Retriever Mix",
+                    "Chesa Bay Retr", # Chesapeake Bay Retriever does not seem to be in dataset, only mix with this shortened name
+                    "Chesapeake Bay Retriever", # incase it is added under this name in the future
+                    "Newfoundland"
+                ]
+            },
+            "sex_upon_outcome": "Intact Female",
+            "age_upon_outcome_in_weeks": {"$gte": 26, "$lte": 156}
+        }
+
+    elif filter_type == 'Mountain':
+        query = {
+            "animal_type": "Dog",
+            "breed": {
+                "$in": [
+                    "German Shepherd",
+                    "Alaskan Malamute",
+                    "Old English Sheepdog",
+                    "Siberian Husky",
+                    "Rottweiler"
+                ]
+            },
+            "sex_upon_outcome": "Intact Male",
+            "age_upon_outcome_in_weeks": {"$gte": 26, "$lte": 156}
+        }
+
+    elif filter_type == 'Disaster':
+        query = {
+            "animal_type": "Dog",
+            "breed": {
+                "$in": [
+                    "Doberman Pinsch", # This is what the Doberman Pinschers are called in the dataset
+                    "Doberman Pinscher", # incase it is added under this name in the future
+                    "German Shepherd",
+                    "Golden Retriever",
+                    "Bloodhound",
+                    "Rottweiler"
+                ]
+            },
+            "sex_upon_outcome": "Intact Male",
+            "age_upon_outcome_in_weeks": {"$gte": 20, "$lte": 300}
+        }
+    # If filter_type is 'Reset' or not present, the base query is used
+    
+    df = pd.DataFrame.from_records(shelter.read(query))
+
+    if '_id' in df.columns:
+        df.drop(columns=['_id'], inplace=True)
+        
+    # Build columns dynamically
+    columns = [{"name": i, "id": i} for i in df.columns]
+
+    return df.to_dict('records'), [0], columns
+
+"""
 @app.callback( [Output('datatable-id','data'),
                 Output('datatable-id','selected_rows')],
                [Input('filter-type', 'value'),
@@ -679,7 +893,7 @@ def update_dashboard(filter_type, refresh_signal):
         df.drop(columns=['_id'], inplace=True)
 
     return df.to_dict('records'), [0] # Sends new set of records and sets selected row back to the first one
-
+"""
 # Display the breeds of animal based on quantity represented in
 # the data table
 @app.callback(
