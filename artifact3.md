@@ -3,7 +3,7 @@ layout: default
 title: Artifact 3
 ---
 
-<div align="text-align:center;" markdown="1">
+<div stylen="text-align:center;" markdown="1">
   
 # Artifact 3: Databases
 [Click here to access the files directly, both new and old](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/tree/main/CS-499%20Artifact%203)
@@ -19,7 +19,7 @@ Before discussing the process of developing this, I’ll explain that I did meet
 
 The process of doing these enhancements was the most challenging out of my enhancements overall. Firstly, as I was simply moving it out of Jupyter Notebook, there were various changes I needed to make with my new local environment. The most problematic of them was that the map was now non-functional. I had to work with an open-source map and rewrite that part of the program in how it lined up the latitude and longitude with it, but it was successful and I did improve my skills from that. With the main enhancement though, since the UI had to be implemented with HTML, I further developed my proficiency in using HTML beyond what I already did for the original code. This similarly goes for the callbacks, as while before the callbacks were from pre-made code that I was able to leverage, I now had to use my experience with it to make brand new callbacks for each part of the database management interface. The process gave me more experience with Dash, and generally improved my skills in developing web applications, infusing it with Python functionality. I did face challenges in implementing the desired functionality for each part (adding, updating, deleting, and doing a bulk upload through CSV), but did iterative testing to ensure each were implemented successfully. While the actual UI is not very aesthetically appealing, this can be revised later, but the core functionality is intact. Similarly, the code is tested specifically for the original csv from the project and ones based directly on it. While I did implement some features that should work dynamically, others such as the input sanitization are more directly hard coded for the specified fields of the original project, with a basic default being implemented to maintain some compatibility with alternatives. The function to add animals is also coded to specifically be compatible with the original fields. However, the example CSV included provides the template that should be followed. The current enhancement is a functional prototype, offering more user-friendly features with a full new UI integrated with the dashboard for database management.
 
-<div align="text-align:center;" markdown="1">
+<div style="text-align:center;" markdown="1">
   
 ## Fulfilled Course Outcomes
 
