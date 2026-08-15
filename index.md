@@ -32,7 +32,7 @@ I. Employ strategies for building collaborative environments that enable diverse
 
 II. Design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts
 
-(As mentioned, all course outcomes are fulfilled overall from the other artifacts present and are described from prior experiences at SNHU)
+(As mentioned, all course outcomes are fulfilled overall from everything present on the portfolio, this is just specifically for the self-assessment)
 
 ## Code Review Video
 
