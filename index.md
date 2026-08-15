@@ -9,6 +9,8 @@ title: Home
   
 ## Self-Assessment
 
+[Click here to access self-assessment docx directly](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/blob/main/CS-499%20Narratives%20and%20Assessment/CS%20499%20Self-Assessment.docx)
+
 </div>
 
 As I enter the computer science field as a professional, the strengths, skills, and values that I have developed throughout the SNHU computer science program are important to highlight. Some of this will be showcased in this portfolio as enhanced versions of my works, but there is also others not included yet central to my growth. One key skill is my abilities in collaborating in a team environment. Though most coursework was done alone, I gained experience with the software development life cycle, Agile, Kanban, and Scrum, such as through being part of a simulated team. Working in these scenarios, revising existing code, and writing documentation are part of what has prepared me to collaborate in a professional team setting.
