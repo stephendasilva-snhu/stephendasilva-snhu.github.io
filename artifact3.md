@@ -9,6 +9,8 @@ title: Artifact 3
 [Click here to access the files directly, both new and old](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/tree/main/CS-499%20Artifact%203)
 
 ## Enhancement Narrative
+[Click here to access narrative docx directly](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/blob/main/CS-499%20Narratives%20and%20Assessment/CS%20499%20Artifact%203%20Narrative.docx)
+
 </div>
 
 For my third artifact, I picked the Rescue Animal Data Dashboard made for CS 340: Client/Server Development. It outputs data from a MongoDB database through a data table and other visualizations. This data is for rescue animals, and their documents contain attributes such as their breed, sex, and location. There are ways to sort through the table based on each attribute and specific filter options for animals most suited for particular tasks. Visualizations include a pie chart of all the breeds in the current set of records (can be altered with the filters) and a map that centers on a marker of the location for a selected animal, based on the latitude and longitude. It uses a basic CRUD Python module to interface with the database, and hard-coded credentials for the purposes of prototyping.
