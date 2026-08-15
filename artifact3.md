@@ -4,6 +4,7 @@ title: Artifact 3
 ---
 
 <div align="text-align:center;" markdown="1">
+  
 # Artifact 3: Databases
 [Click here to access the files directly, both new and old](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/tree/main/CS-499%20Artifact%203)
 
