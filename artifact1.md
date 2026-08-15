@@ -10,7 +10,6 @@ title: Artifact 1
 [Click here to access the files directly, both new and old](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/tree/main/CS-499%20Artifact%201)
 
 ## Enhancement Narrative
-
 [Click here to access narrative docx directly](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/blob/main/CS-499%20Narratives%20and%20Assessment/CS%20499%20Artifact%201%20Narrative.docx)
 
 </div>
