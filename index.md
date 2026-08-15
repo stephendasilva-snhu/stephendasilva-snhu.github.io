@@ -8,7 +8,6 @@ title: Home
 # Welcome to Stephen DaSilva's e-Portfolio
   
 ## Self-Assessment
-
 [Click here to access self-assessment docx directly](https://github.com/stephendasilva-snhu/stephendasilva-snhu.github.io/blob/main/CS-499%20Narratives%20and%20Assessment/CS%20499%20Self-Assessment.docx)
 
 </div>
