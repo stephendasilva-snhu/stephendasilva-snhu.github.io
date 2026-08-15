@@ -28,7 +28,7 @@ I. Employ strategies for building collaborative environments that enable diverse
 IV. Demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals
 V. Develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources
   
-## Screenshots from Enhanced Programm
+## Screenshots from Enhanced Program
 ### Main Dashboard
 <img width="1227" height="568" alt="Main Dashboard" src="https://github.com/user-attachments/assets/7f1de56c-4f0c-4d39-9332-7537a9da464b" />
 
