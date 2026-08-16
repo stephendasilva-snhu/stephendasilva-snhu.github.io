@@ -35,7 +35,7 @@ V. Develop a security mindset that anticipates adversarial exploits in software 
   
 ## Screenshots from Enhanced Program
 ### Main Dashboard
-<img width="1227" height="568" alt="Main Dashboard" src="https://github.com/user-attachments/assets/7f1de56c-4f0c-4d39-9332-7537a9da464b" />
+<img alt="Main Dashboard" src="https://github.com/user-attachments/assets/7f1de56c-4f0c-4d39-9332-7537a9da464b" style="max-width:95%; height:auto;" />
 
 ### Filtered Dashboard
 <img width="1216" height="566" alt="Filtered Dashboard" src="https://github.com/user-attachments/assets/834b30b2-8f78-4974-883d-950d01624bfc" />
