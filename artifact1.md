@@ -24,6 +24,8 @@ I did meet the course outcomes I originally planned, as the enhancements led to 
 	
 ## Fulfilled Course Outcomes
 
+The specific fulfillments are described above, but the main course outcomes fulfilled in this enhancement were:
+
 I. Employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science
 
 III. Design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution, while managing the trade-offs involved in design choices
