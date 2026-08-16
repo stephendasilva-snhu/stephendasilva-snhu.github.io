@@ -35,19 +35,19 @@ V. Develop a security mindset that anticipates adversarial exploits in software 
   
 ## Screenshots from Enhanced Program
 ### Main Dashboard
-<img alt="Main Dashboard" src="https://github.com/user-attachments/assets/7f1de56c-4f0c-4d39-9332-7537a9da464b" style="max-width:95%; height:auto;" />
+<img alt="Main Dashboard" src="https://github.com/user-attachments/assets/7f1de56c-4f0c-4d39-9332-7537a9da464b" style="max-width:100%; height:auto;" />
 
 ### Filtered Dashboard
-<img width="1216" height="566" alt="Filtered Dashboard" src="https://github.com/user-attachments/assets/834b30b2-8f78-4974-883d-950d01624bfc" />
+<img alt="Filtered Dashboard" src="https://github.com/user-attachments/assets/834b30b2-8f78-4974-883d-950d01624bfc" style="max-width:100%; height:auto;" />
 
 ### Data Visualizations
-<img width="1216" height="539" alt="Data Visualizations" src="https://github.com/user-attachments/assets/a056c764-7cf6-4b22-a58d-16a9aed5cd27" />
+<img alt="Data Visualizations" src="https://github.com/user-attachments/assets/a056c764-7cf6-4b22-a58d-16a9aed5cd27" style="max-width:100%; height:auto;" />
 
 ### Database Connection UI
-<img width="410" height="199" alt="Database Connection UI" src="https://github.com/user-attachments/assets/ea99f92e-d60b-4679-bdad-028ef5554a40" />
+<img alt="Database Connection UI" src="https://github.com/user-attachments/assets/ea99f92e-d60b-4679-bdad-028ef5554a40" style="max-width:100%; height:auto;" />
 
 ### Database Management UI
-<img width="992" height="534" alt="Database Management UI" src="https://github.com/user-attachments/assets/01073908-096d-4c87-9a4f-7bcf5da2b78f" />
+<img alt="Database Management UI" src="https://github.com/user-attachments/assets/01073908-096d-4c87-9a4f-7bcf5da2b78f" style="max-width:100%; height:auto;" />
 
 </div>
 
