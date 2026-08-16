@@ -47,11 +47,10 @@ II. Design, develop, and deliver professional-quality oral, written, and visual 
 I. Employ strategies for building collaborative environments that enable diverse audiences to support organizational decision making in the field of computer science
 
 II. Design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts
-</div>
 
-## Code Artifact Pages (Also in navigation bar)
-- [Artifact 1](artifact1.md)
-- [Artifact 2](artifact2.md)
-- [Artifact 3](artifact3.md)
-
+## Other Pages (Also in navigation bar)
+[Code Review](codereview.md)
+[Artifact 1](artifact1.md)
+[Artifact 2](artifact2.md)
+[Artifact 3](artifact3.md)
 
