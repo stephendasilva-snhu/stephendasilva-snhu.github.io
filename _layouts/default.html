@@ -29,9 +29,10 @@
     <div class="wrapper">
   
       <header>
-        <h1>{{ site.title }}</h1>
+        <h1>Stephen DaSilva's ePortfolio</h1>
         <nav>
           <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/codereview.html' | relative_url }}">Code Review</a>
           <a href="{{ '/artifact1.html' | relative_url }}">Artifact 1</a>
           <a href="{{ '/artifact2.html' | relative_url }}">Artifact 2</a>
           <a href="{{ '/artifact3.html' | relative_url }}">Artifact 3</a>
@@ -45,7 +46,7 @@
   
       <footer>
         <hr>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author | default: site.title }}</p>
+        <p>&copy; {{ site.time | date: '%Y' }} Stephen DaSilva</p>
       </footer>
   
     </div>
